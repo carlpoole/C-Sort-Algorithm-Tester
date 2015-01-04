@@ -50,11 +50,9 @@ int main(void){
 			case 1: printf("Insertion Sort\n"); 
 				insertionSort(integers, NUM_OF_INTS); 
 				break;
-			case 2: printf("Selection Sort\n"); 
 				selectionSort(integers, NUM_OF_INTS); 
 				break;
-			case 3: printf("Bubble Sort\n"); 
-				
+			case 3: printf("Bubble Sort\n"); 		
 				bubbleSort(integers, NUM_OF_INTS); 
 				break;
 			case 4: printf("Shell Sort\n"); 
@@ -115,7 +113,19 @@ void insertionSort(int a[], int array_size)
 }
 
 void selectionSort(int a[], int array_size){
-	printf("Not yet implemented\n");
+	
+	int i, j, small, temp;
+	for (i=0; i < array_size; i++)
+	{
+		small = i;
+		
+		for(j=i+1; j < array_size; j++)
+			if(a[j]<a[small]) small = j;
+		
+		temp = a[i];
+		a[i] = a[small];
+		a[small] = temp;
+	}
 }
 
 void bubbleSort(int a[], int array_size)
