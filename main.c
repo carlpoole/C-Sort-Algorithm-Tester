@@ -38,7 +38,7 @@ int main(void){
 	
 	int algSelection = 0;
 	
-	while(algSelection <1 || algSelection > 8){
+	while(algSelection < 1 || algSelection > 8){
 		
 		printf("Please enter the number of the algorithm you want to test: ");
 		scanf("%d", &algSelection);
@@ -73,7 +73,7 @@ int main(void){
 				quick3Sort(integers, NUM_OF_INTS); 
 				break;
 				
-			default: printf("Invalid Option\n");
+			default: printf("Invalid Option. Choose another!\n");
 		}
 		
 		gettimeofday(&stop, NULL);
