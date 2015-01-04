@@ -1,14 +1,24 @@
 #include <stdio.h>
 
 void insertionSort(int a[], int array_size);
+void selectionSort(int a[], int array_size);
 void bubbleSort(int a[], int array_size);
+void shellSort(int a[], int array_size);
+void mergeSort(int a[], int array_size);
+void heapSort(int a[], int array_size);
+void quickSort(int a[], int array_size);
+void quick3Sort(int a[], int array_size);
+
+const int NUM_OF_INTS = 50000;
 
 int main(void){
 	
+	printf("------------------------------\n");
 	printf("C Sorting Algorithm Speed Test\n");
+	printf("------------------------------\n\n");
 	FILE *file = fopen("./data/numbers","r");
 	
-	int integers[50000];
+	int integers[NUM_OF_INTS];
 	
 	int i=0;
 	int num;
@@ -19,7 +29,8 @@ int main(void){
 	
 	fclose(file);
 	
-	printf("Numbers Loaded\n");
+	//printf("Numbers Loaded\n");
+	
 	printf("Please pick an algorithm to speed test:\n");
 	
 	printf("1. Insertion Sort\n");
@@ -37,25 +48,32 @@ int main(void){
 		
 		printf("Please enter the number of the algorithm you want to test: ");
 		scanf("%d", &algSelection);
+		printf("\n");
 		
 		switch(algSelection){
 			case 1: printf("Insertion Sort\n"); 
-				insertionSort(integers, 50000); 
+				insertionSort(integers, NUM_OF_INTS); 
 				break;
 			case 2: printf("Selection Sort\n"); 
+				selectionSort(integers, NUM_OF_INTS); 
 				break;
 			case 3: printf("Bubble Sort\n"); 
-				bubbleSort(integers, 50000); 
+				bubbleSort(integers, NUM_OF_INTS); 
 				break;
 			case 4: printf("Shell Sort\n"); 
+				shellSort(integers, NUM_OF_INTS); 
 				break;
 			case 5: printf("Merge Sort\n"); 
+				mergeSort(integers, NUM_OF_INTS); 
 				break;
 			case 6: printf("Heap Sort\n"); 
+				heapSort(integers, NUM_OF_INTS); 
 				break;
 			case 7: printf("Quick Sort\n"); 
+				quickSort(integers, NUM_OF_INTS); 
 				break;
 			case 8: printf("Quick3 Sort\n"); 
+				quick3Sort(integers, NUM_OF_INTS); 
 				break;
 				
 			default: printf("Invalid Option\n");
@@ -86,6 +104,10 @@ void insertionSort(int a[], int array_size)
 	 }
 }
 
+void selectionSort(int a[], int array_size){
+	printf("Not yet implemented\n");
+}
+
 void bubbleSort(int a[], int array_size)
 {
 	 int i, j, temp;
@@ -102,3 +124,31 @@ void bubbleSort(int a[], int array_size)
 		  }
 	 }
 }
+
+void shellSort(int a[], int array_size)
+{
+	printf("Not yet implemented\n");
+}
+
+void mergeSort(int a[], int array_size)
+{
+	printf("Not yet implemented\n");
+}
+
+void heapSort(int a[], int array_size)
+{
+	printf("Not yet implemented\n");
+}
+
+void quickSort(int a[], int array_size)
+{
+	printf("Not yet implemented\n");
+}
+
+void quick3Sort(int a[], int array_size)
+{
+	printf("Not yet implemented\n");
+}
+
+
+
