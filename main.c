@@ -8,28 +8,19 @@ void mergeSort(int a[], int array_size);
 void heapSort(int a[], int array_size);
 void quickSort(int a[], int array_size);
 void quick3Sort(int a[], int array_size);
+void loadData(char path[]);
 
 const int NUM_OF_INTS = 50000;
+const char DATA_FILE_PATH[] = "./data/numbers";
+int integers[NUM_OF_INTS];
 
 int main(void){
 	
 	printf("------------------------------\n");
 	printf("C Sorting Algorithm Speed Test\n");
 	printf("------------------------------\n\n");
-	FILE *file = fopen("./data/numbers","r");
 	
-	int integers[NUM_OF_INTS];
-	
-	int i=0;
-	int num;
-	while(fscanf(file, "%d", &num) > 0){
-		integers[i] = num;
-		i++;
-	}
-	
-	fclose(file);
-	
-	//printf("Numbers Loaded\n");
+	loadData(DATA_FILE_PATH);
 	
 	printf("Please pick an algorithm to speed test:\n");
 	
@@ -89,6 +80,19 @@ int main(void){
 	
 	return 0;
 	
+}
+
+void loadData(char path[]){
+	FILE *file = fopen(path,"r");
+
+	int i=0;
+	int num;
+	while(fscanf(file, "%d", &num) > 0){
+		integers[i] = num;
+		i++;
+	}
+
+	fclose(file);
 }
 
 void insertionSort(int a[], int array_size)
