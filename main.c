@@ -3,7 +3,7 @@
 void insertionSort(int a[], int array_size);
 void bubbleSort(int a[], int array_size);
 
-main(){
+int main(void){
 	
 	printf("C Sorting Algorithm Speed Test\n");
 	FILE *file = fopen("./data/numbers","r");
@@ -20,13 +20,56 @@ main(){
 	fclose(file);
 	
 	printf("Numbers Loaded\n");
+	printf("Please pick an algorithm to speed test:\n");
 	
-	printf("%d %d %d %d %d\n",integers[0],integers[1],integers[2],integers[3],integers[4]);
+	printf("1. Insertion Sort\n");
+	printf("2. Selection Sort\n");
+	printf("3. Bubble Sort\n");
+	printf("4. Shell Sort\n");
+	printf("5. Merge Sort\n");
+	printf("6. Heap Sort\n");
+	printf("7. Quick Sort\n");
+	printf("8. Quick3 Sort\n\n");
+	
+	int algSelection = 0;
+	
+	while(algSelection <1 || algSelection > 8){
+		
+		printf("Please enter the number of the algorithm you want to test: ");
+		scanf("%d", &algSelection);
+		
+		switch(algSelection){
+			case 1: printf("Insertion Sort\n"); 
+				insertionSort(integers, 50000); 
+				break;
+			case 2: printf("Selection Sort\n"); 
+				break;
+			case 3: printf("Bubble Sort\n"); 
+				bubbleSort(integers, 50000); 
+				break;
+			case 4: printf("Shell Sort\n"); 
+				break;
+			case 5: printf("Merge Sort\n"); 
+				break;
+			case 6: printf("Heap Sort\n"); 
+				break;
+			case 7: printf("Quick Sort\n"); 
+				break;
+			case 8: printf("Quick3 Sort\n"); 
+				break;
+				
+			default: printf("Invalid Option\n");
+		}
+	}
+	
+	//printf("%d %d %d %d %d\n",integers[0],integers[1],integers[2],integers[3],integers[4]);
 	
 	//insertionSort(integers, 50000);
-	bubbleSort(integers, 50000);
+	//bubbleSort(integers, 50000);
 	
-	printf("%d %d %d %d %d\n",integers[0],integers[1],integers[2],integers[3],integers[4]);
+	//printf("%d %d %d %d %d\n",integers[0],integers[1],integers[2],integers[3],integers[4]);
+	
+	return 0;
 	
 }
 
