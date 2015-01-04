@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <sys/time.h>
 
 void insertionSort(int a[], int array_size);
 void selectionSort(int a[], int array_size);
@@ -13,6 +14,8 @@ void loadData(char path[]);
 const int NUM_OF_INTS = 50000;
 const char DATA_FILE_PATH[] = "./data/numbers";
 int integers[NUM_OF_INTS];
+
+struct timeval stop, start;
 
 int main(void){
 	
@@ -41,6 +44,8 @@ int main(void){
 		scanf("%d", &algSelection);
 		printf("\n");
 		
+		gettimeofday(&start, NULL);
+		
 		switch(algSelection){
 			case 1: printf("Insertion Sort\n"); 
 				insertionSort(integers, NUM_OF_INTS); 
@@ -49,6 +54,7 @@ int main(void){
 				selectionSort(integers, NUM_OF_INTS); 
 				break;
 			case 3: printf("Bubble Sort\n"); 
+				
 				bubbleSort(integers, NUM_OF_INTS); 
 				break;
 			case 4: printf("Shell Sort\n"); 
@@ -69,14 +75,14 @@ int main(void){
 				
 			default: printf("Invalid Option\n");
 		}
+		
+		gettimeofday(&stop, NULL);
+		
+		double tookTime = ((double) ((1000000 * stop.tv_sec + stop.tv_usec) 
+									- (1000000 * start.tv_sec + start.tv_usec)))/1e6;
+		
+		printf("Sorting took %.4f seconds\n", tookTime);
 	}
-	
-	//printf("%d %d %d %d %d\n",integers[0],integers[1],integers[2],integers[3],integers[4]);
-	
-	//insertionSort(integers, 50000);
-	//bubbleSort(integers, 50000);
-	
-	//printf("%d %d %d %d %d\n",integers[0],integers[1],integers[2],integers[3],integers[4]);
 	
 	return 0;
 	
